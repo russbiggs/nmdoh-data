@@ -1,4 +1,5 @@
 import cleanData from "./utils";
+import APIClient from './api';
 
 class DownloadBtn {
     constructor(){
@@ -40,5 +41,6 @@ class DownloadBtn {
         link.click();
     }
 }
+
 
 export default DownloadBtn;
