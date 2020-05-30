@@ -11,10 +11,12 @@ import DownloadBtn from './download-btn';
     const downloadBtn = new DownloadBtn();
    
     emitter.on('state-data', table.update);
+    emitter.on('state-data', downloadBtn.setContent);
     emitter.on('county-data', table.update);
     emitter.on('county-data', downloadBtn.setContent);
     emitter.on('set-name', downloadBtn.setName);
     emitter.on('zip-code-data', table.update);
+    emitter.on('correctional-data', table.update);
 
     document.querySelector('.js-county-btn').addEventListener('click', ()=> {
         return client.getCounties();
@@ -24,6 +26,9 @@ import DownloadBtn from './download-btn';
     });
     document.querySelector('.js-zip-code-btn').addEventListener('click', ()=> {
         return client.getZipCodeData();
+    });
+    document.querySelector('.js-correctional-btn').addEventListener('click', ()=> {
+        return client.getCorrectionalData();
     });
 
     client.getCounties();
