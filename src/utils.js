@@ -1,5 +1,5 @@
 function cleanData(data) {
-    const removeHeaders = ['geometry', 'lat', 'long', 'countyId', 'cvDataId','created', 'archived'];
+    const removeHeaders = ['geometry', 'lat', 'long', 'cvDataId','created', 'archived','correctionalFacilityDataId','countyDataId'];
     const keys = Object.keys(data[0]);
     const headings = keys.filter((x) => {
         if (removeHeaders.indexOf(x) == -1) {
