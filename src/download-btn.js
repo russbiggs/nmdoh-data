@@ -18,7 +18,6 @@ class DownloadBtn {
         this.name = '';
         this.rows = [];
 
-        this.addEventListeners = this.addEventListeners.bind(this);
         this.onClick = this.onClick.bind(this);
         this.setContent = this.setContent.bind(this)
         this.setName = this.setName.bind(this);
@@ -49,7 +48,6 @@ class CountyDownloadLink {
         this.name = this.elem.innerText;
         this.countyId = this.elem.getAttribute("data-county-id");
 
-        this.addEventListeners = this.addEventListeners.bind(this);
         this.onClick = this.onClick.bind(this);
 
         this.elem.addEventListener('click', this.onClick);
@@ -71,7 +69,6 @@ class StatewideDownloadLink {
         this.elem = elem;
         this.client = client;
 
-        this.addEventListeners = this.addEventListeners.bind(this);
         this.onClick = this.onClick.bind(this);
 
         this.elem.addEventListener('click', this.onClick);
