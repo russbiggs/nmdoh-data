@@ -9,6 +9,7 @@ class APIClient {
 		this.getStateData = this.getStateData.bind(this);
         this.getZipCodeData = this.getZipCodeData.bind(this);
         this.getCorrectionalData = this.getCorrectionalData.bind(this);
+        this.getCountyHistorical = this.getCountyHistorical.bind(this);
     }
     
 	async getCounties() {
@@ -23,6 +24,13 @@ class APIClient {
     async getCountyHistorical(countyId) {
         console.log('fetching county data')
 		const res = await fetch(`${this.baseURL}GetCountyDataByDay?countyId=${countyId}`);
+        const data = await res.json();
+        return data
+    }
+
+    async getStateHistorical() {
+        console.log('fetching state data')
+		const res = await fetch(`${this.baseURL}GetCvDataByDay`);
         const data = await res.json();
         return data
     }

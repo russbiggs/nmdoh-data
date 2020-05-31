@@ -6,7 +6,6 @@ class Table {
     constructor() {
         this.elem = document.querySelector('.js-table');
         this.dataTable = new DataTable(this.elem, {paging:false});
-
         this.update = this.update.bind(this);
     }
 
