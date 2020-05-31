@@ -33,15 +33,28 @@
             align-items: center;
         }
 
+        .nav-section {
+            margin-left:auto;
+            display: flex;
+        }
+
+        .nav-link {
+            margin: 0 10px;
+        }
+
         .title {
             font-size: 20px;
             font-weight: 500;
             padding-left: 20px;
         }
 
-        .actions {
-            height: 50px;
+        .mobile-title { 
+            display: none;
+            font-size: 16px;
+            font-weight: 500;
+            padding-left: 10px;
         }
+
 
         .actions__container {
             padding: 0 20px;
@@ -82,13 +95,21 @@
             display: flex;
         }
 
+        .historical-container {
+            padding: 20px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            max-width:800px;
+        }
+
+
         table {
             table-layout: fixed;
             border-collapse: collapse;
-            }
+        }
 
-            thead tr {
-
+        thead tr {
             border-bottom: #000 1px solid;
         }
 
@@ -110,10 +131,43 @@
             background-color: #ddd;
         }
 
+        .section {
+            display: none;
+        }
+
+        .section--active {
+            display: block;
+        }
+
+
+        .county-list {
+            padding-left:10px;
+            vertical-align:top;
+            columns: 3;
+        }
+
+        .county-list li {
+            margin: 5px;
+        }
+        
+
+
         @media only screen and (max-width: 1000px)  {
 
             .title {
-                font-size:18px;
+                display: none;   
+            }
+
+            .container {
+                top: 70px;
+            }
+
+            .mobile-title {
+                display: block;
+            }
+
+            .actions__container {
+                flex-wrap: wrap;
             }
 
             .btn {
@@ -132,8 +186,17 @@
     </style>
 </head>
 <body>
-    <header class="header"><div class="title">New Mexico Department of Health Covid Data Table</div></header>
-    <section class="actions">
+    <header class="header">
+        <div class="title">New Mexico Department of Health Covid Data Table</div>
+        <div class="mobile-title">NMDOH Covid Data</div>
+        <nav class="nav-section">
+            <a href="#" class="nav-link nav-link-active js-daily-link">Daily Data</a>
+            <span>|</span>
+            <a href="#" class="nav-link js-historical-link">Historical Data</a>
+        </nav>
+    </header>
+    <section class="section section--active js-daily-section">
+    <div class="actions">
         <div class="actions__container">
             <div class="btn js-state-btn"><span class="desktop-label">View statewide Data</span> <span class="mobile-label">Statewide</span> </div>
             <div class="btn js-county-btn"><span class="desktop-label">View county level data</span> <span class="mobile-label">County</span></div>
@@ -141,12 +204,55 @@
             <div class="btn js-correctional-btn"><span class="desktop-label">View correctional facility data</span> <span class="mobile-label">Correctional Facilities</span></div>
             <div class="btn download-btn js-download-btn"><span class="desktop-label">Download data as csv</span> <span class="mobile-label">csv</span></div>
         </div>
-    </section>
-    <section class="container">
+    </div>
+    <div class="container">
         <table class="table js-table">
             <thead></thead>
             <tbody></tbody>
         </table>
+    </div>
+    </section>
+    <section class="section js-historical-section">
+        <div class="historical-container">
+            <h3>Historical Data</h3>
+            <a href="#" class="js-download-statewide-historical-link">Statewide</a>
+            <p>Counties</p>
+            <ul class="county-list">
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="1">Bernalillo</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="3">Catron</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="5">Chaves</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="6">Cibola</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="7">Colfax</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="9">Curry</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="11">De Baca</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="13">Doña Ana</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="15">Eddy</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="17">Grant</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="19">Guadalupe</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="21">Harding</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="23">Hidalgo</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="25">Lea</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="27">Lincoln</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="28">Los Alamos</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="29">Luna</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="31">McKinley</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="33">Mora</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="35">Otero</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="37">Quay</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="39">Rio Arriba</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="41">Roosevelt</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="45">San Juan</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="47">San Miguel</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="43">Sandoval</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="49">Santa Fe</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="51">Sierra</a> </li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="53">Socorro</a> </li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="55">Taos</a> </li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="57">Torrance</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="59">Union</a></li>
+                <li><a class="js-download-county-historical-link" href="#" data-county-id="61">Valencia</a></li>
+            </ul>
+        </div>
     </section>
     <script src="dist/bundle.js"></script>
 </body>
