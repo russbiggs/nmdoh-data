@@ -7,7 +7,7 @@
     "build": "rm -rf dist && mkdir dist && webpack"
   },
   "dependencies": {
-    "mitt": "^1.2.0",
+    "mitt": "^2.0.1",
     "simple-datatables": "^2.1.10"
   },
   "devDependencies": {
